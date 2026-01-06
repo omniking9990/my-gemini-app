@@ -27,8 +27,13 @@ def configure_model():
     
     # [核心功能] 啟用 Google 搜尋工具 (Grounding)
     tools = [
-        {"google_search": {}} 
-    ]
+    {"google_search_retrieval": {
+        "dynamic_retrieval_config": {
+            "mode": "dynamic",
+            "dynamic_threshold": 0.3
+        }
+    }}
+]
     
     # 建立模型
     # 注意：這裡使用 gemini-1.5-pro，它是目前免費版最強的模型
@@ -86,3 +91,4 @@ if user_input and "chat_session" in st.session_state:
                     
             except Exception as e:
                 st.error(f"發生錯誤：{e}")
+
