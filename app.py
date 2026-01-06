@@ -12,7 +12,7 @@ def get_model():
     tools = [{"google_search_retrieval": {"dynamic_retrieval_config": {"mode": "dynamic", "dynamic_threshold": 0.3}}}]
     
     model = genai.GenerativeModel(
-        model_name="gemini-1.5-pro",
+        model_name="gemini-1.5-pro-latest",
         system_instruction="你是一個具備檔案分析與網路搜尋能力的 AI。當使用者上傳檔案時，請先分析檔案內容再回答。",
         tools=tools
     )
@@ -67,3 +67,4 @@ if user_input:
                     st.markdown(response.candidates[0].grounding_metadata.search_entry_point.rendered_content)
             except Exception as e:
                 st.error(f"發生錯誤：{e}")
+
