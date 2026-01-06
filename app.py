@@ -12,8 +12,8 @@ if "GOOGLE_API_KEY" not in st.secrets:
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # 強制指定一個最容易成功的模型
-# 請將原本的 gemini-1.5-flash 改成這串完整的名稱
-model = genai.GenerativeModel('models/gemini-1.5-flash')
+# 請將這行完整替換，注意包含了 'models/' 和具體版本號 '002'
+model = genai.GenerativeModel('models/gemini-1.5-flash-002')
 
 st.title("Gemini 萬能助手 📂")
 
@@ -56,4 +56,5 @@ if prompt := st.chat_input("請輸入問題..."):
             
         except Exception as e:
             st.error(f"連線失敗，請檢查 API Key 是否正確。錯誤代碼: {e}")
+
 
